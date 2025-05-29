@@ -1,30 +1,23 @@
 import React from 'react';
-import { useFormStore } from './store/useFormStore';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FormStepper from './components/FormStepper';
 import HoldingsForm from './components/forms/HoldingsForm';
-import TaxPositionForm from './components/forms/TaxPositionForm';
+import { useFormStore } from './store/useFormStore';
 
-function App() {
-  const currentStep = useFormStore(state => state.currentStep);
+const App: React.FC = () => {
+  const { currentStep } = useFormStore();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-neutral-50 to-neutral-100">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
+      <main className="container mx-auto px-4 py-8 flex-1">
         <FormStepper />
-        
-        <div className="mt-8">
-          {currentStep === 'holdings' && <HoldingsForm />}
-          {currentStep === 'taxPosition' && <TaxPositionForm />}
-        </div>
+        {currentStep === 'holdings' && <HoldingsForm />}
       </main>
-
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
