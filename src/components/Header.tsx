@@ -37,3 +37,5 @@ const Header: React.FC = () => {
     </motion.header>
   );
 };
+
+export default Header
