@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CurrencyPoundIcon, ChartBarIcon, CalendarIcon } from '@heroicons/react/24/outline';
+import { BanknotesIcon, ChartBarSquareIcon, CalendarDaysIcon } from '@heroicons/react/24/outline';
 
 const Header: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Header: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-white/10 rounded-lg">
-              <CurrencyPoundIcon className="w-8 h-8" />
+              <BanknotesIcon className="w-6 h-6" />
             </div>
             <div>
               <h1 className="text-2xl font-bold">UK Crypto Tax Calculator</h1>
@@ -24,11 +24,11 @@ const Header: React.FC = () => {
           
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <ChartBarIcon className="w-5 h-5" />
+              <ChartBarSquareIcon className="w-5 h-5" />
               <span className="text-sm">Real-time Updates</span>
             </div>
             <div className="flex items-center gap-2">
-              <CalendarIcon className="w-5 h-5" />
+              <CalendarDaysIcon className="w-5 h-5" />
               <span className="text-sm font-medium">Tax Year 2025/26</span>
             </div>
           </div>
@@ -37,5 +37,3 @@ const Header: React.FC = () => {
     </motion.header>
   );
 };
-
-export default Header;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { InformationCircleIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import { InformationCircleIcon, ShieldExclamationIcon } from '@heroicons/react/24/outline';
 
 const Footer: React.FC = () => {
   return (
@@ -7,13 +7,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="flex items-start gap-3">
-            <InformationCircleIcon className="w-6 h-6 text-primary-400 flex-shrink-0" />
+            <InformationCircleIcon className="w-5 h-5 text-primary-400 flex-shrink-0" />
             <p className="text-sm text-neutral-300">
               This calculator provides an estimate only. Please consult a qualified tax professional for personalized advice.
             </p>
           </div>
           <div className="flex items-start gap-3">
-            <ShieldCheckIcon className="w-6 h-6 text-primary-400 flex-shrink-0" />
+            <ShieldExclamationIcon className="w-5 h-5 text-primary-400 flex-shrink-0" />
             <p className="text-sm text-neutral-300">
               Rates and allowances mentioned are for the 2025/26 tax year and subject to change.
             </p>
@@ -26,5 +26,3 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-export default Footer;
