@@ -51,29 +51,29 @@ const HoldingsForm: React.FC = () => {
     >
       <div className="card">
         <div className="card-header">
-          <h2 className="text-xl font-semibold">Cryptocurrency Holdings</h2>
-          <p className="text-sm text-neutral-500 mt-1">
+          <h2 className="text-3xl font-semibold">Cryptocurrency Holdings</h2>
+          <p className="text-xl text-neutral-500 mt-2">
             Enter details about your cryptocurrency investments
           </p>
         </div>
         
         <div className="card-body">
           {holdings.map((holding, index) => (
-            <div key={holding.id} className="mb-8 pb-8 border-b border-neutral-200 last:border-0 last:mb-0 last:pb-0">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-medium">Holding #{index + 1}</h3>
+            <div key={holding.id} className="mb-12 pb-12 border-b border-neutral-200 last:border-0 last:mb-0 last:pb-0">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-medium">Holding #{index + 1}</h3>
                 {holdings.length > 1 && (
                   <button
                     type="button"
                     onClick={() => removeHolding(holding.id)}
-                    className="text-error-500 hover:text-error-700 transition-colors"
+                    className="text-error-500 hover:text-error-700 transition-colors text-lg"
                   >
                     Remove
                   </button>
                 )}
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor={`name-${holding.id}`} className="input-label">
                     Cryptocurrency Name
@@ -109,7 +109,7 @@ const HoldingsForm: React.FC = () => {
                     <span className="flex items-center">
                       Total Amount Invested (GBP)
                       <Tooltip text="The total amount in GBP that you initially invested to purchase this cryptocurrency">
-                        <QuestionMarkCircleIcon className="w-2.5 h-2.5 ml-1 text-neutral-400" />
+                        <QuestionMarkCircleIcon className="w-5 h-5 ml-2 text-neutral-400" />
                       </Tooltip>
                     </span>
                   </label>
@@ -146,7 +146,7 @@ const HoldingsForm: React.FC = () => {
                     <span className="flex items-center">
                       Price Per Unit at Purchase (GBP)
                       <Tooltip text="The price in GBP of a single unit of this cryptocurrency at the time of purchase">
-                        <QuestionMarkCircleIcon className="w-2.5 h-2.5 ml-1 text-neutral-400" />
+                        <QuestionMarkCircleIcon className="w-5 h-5 ml-2 text-neutral-400" />
                       </Tooltip>
                     </span>
                   </label>
@@ -168,7 +168,7 @@ const HoldingsForm: React.FC = () => {
                     <span className="flex items-center">
                       Current Units Held
                       <Tooltip text="The number of units of this cryptocurrency that you currently own">
-                        <QuestionMarkCircleIcon className="w-2.5 h-2.5 ml-1 text-neutral-400" />
+                        <QuestionMarkCircleIcon className="w-5 h-5 ml-2 text-neutral-400" />
                       </Tooltip>
                     </span>
                   </label>
@@ -190,7 +190,7 @@ const HoldingsForm: React.FC = () => {
                     <span className="flex items-center">
                       Current Market Value (GBP)
                       <Tooltip text="The total value in GBP of your holding at today's market price">
-                        <QuestionMarkCircleIcon className="w-2.5 h-2.5 ml-1 text-neutral-400" />
+                        <QuestionMarkCircleIcon className="w-5 h-5 ml-2 text-neutral-400" />
                       </Tooltip>
                     </span>
                   </label>
@@ -209,10 +209,10 @@ const HoldingsForm: React.FC = () => {
               </div>
               
               {holding.purchaseAmount > 0 && holding.currentValue > 0 && (
-                <div className="mt-4">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium">Profit/Loss:</span>
-                    <span className={`font-semibold ${
+                <div className="mt-6">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl font-medium">Profit/Loss:</span>
+                    <span className={`text-xl font-semibold ${
                       holding.currentValue > holding.purchaseAmount 
                         ? 'text-secondary-500' 
                         : holding.currentValue < holding.purchaseAmount 
@@ -229,13 +229,13 @@ const HoldingsForm: React.FC = () => {
             </div>
           ))}
           
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          <div className="flex flex-col sm:flex-row gap-6 mt-8">
             <button
               type="button"
               onClick={addHolding}
               className="btn-secondary"
             >
-              <PlusIcon className="w-3 h-3 mr-1" />
+              <PlusIcon className="w-5 h-5 mr-2" />
               Add Another Cryptocurrency
             </button>
             
@@ -248,7 +248,7 @@ const HoldingsForm: React.FC = () => {
               whileTap={{ scale: isValid() ? 0.98 : 1 }}
             >
               Continue to Tax Position
-              <ArrowRightIcon className="w-3 h-3 ml-1" />
+              <ArrowRightIcon className="w-5 h-5 ml-2" />
             </motion.button>
           </div>
         </div>
