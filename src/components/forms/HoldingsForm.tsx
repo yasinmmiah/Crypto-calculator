@@ -3,6 +3,11 @@ import { motion } from 'framer-motion';
 import { useFormStore } from '../../store/useFormStore';
 import Tooltip from '../Tooltip';
 import { formatCurrency } from '../../utils/formatters';
+import { 
+  QuestionMarkCircleIcon, 
+  PlusIcon, 
+  ArrowRightIcon 
+} from '@heroicons/react/24/outline';
 
 const HoldingsForm: React.FC = () => {
   const { formData, addHolding, updateHolding, removeHolding, nextStep } = useFormStore();
@@ -11,7 +16,6 @@ const HoldingsForm: React.FC = () => {
   const handleUpdateHolding = (id: string, field: string, value: string | number) => {
     updateHolding(id, { [field]: value });
     
-    // Auto-calculate current units if purchase amount and price per unit are provided
     if (field === 'purchaseAmount' || field === 'pricePerUnit') {
       const holding = holdings.find(h => h.id === id);
       if (holding) {
@@ -105,9 +109,7 @@ const HoldingsForm: React.FC = () => {
                     <span className="flex items-center">
                       Total Amount Invested (GBP)
                       <Tooltip text="The total amount in GBP that you initially invested to purchase this cryptocurrency">
-                        <svg className="w-2.5 h-2.5 ml-1 text-neutral-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-                        </svg>
+                        <QuestionMarkCircleIcon className="w-2.5 h-2.5 ml-1 text-neutral-400" />
                       </Tooltip>
                     </span>
                   </label>
@@ -144,9 +146,7 @@ const HoldingsForm: React.FC = () => {
                     <span className="flex items-center">
                       Price Per Unit at Purchase (GBP)
                       <Tooltip text="The price in GBP of a single unit of this cryptocurrency at the time of purchase">
-                        <svg className="w-2.5 h-2.5 ml-1 text-neutral-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-                        </svg>
+                        <QuestionMarkCircleIcon className="w-2.5 h-2.5 ml-1 text-neutral-400" />
                       </Tooltip>
                     </span>
                   </label>
@@ -168,9 +168,7 @@ const HoldingsForm: React.FC = () => {
                     <span className="flex items-center">
                       Current Units Held
                       <Tooltip text="The number of units of this cryptocurrency that you currently own">
-                        <svg className="w-2.5 h-2.5 ml-1 text-neutral-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-                        </svg>
+                        <QuestionMarkCircleIcon className="w-2.5 h-2.5 ml-1 text-neutral-400" />
                       </Tooltip>
                     </span>
                   </label>
@@ -192,9 +190,7 @@ const HoldingsForm: React.FC = () => {
                     <span className="flex items-center">
                       Current Market Value (GBP)
                       <Tooltip text="The total value in GBP of your holding at today's market price">
-                        <svg className="w-2.5 h-2.5 ml-1 text-neutral-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-                        </svg>
+                        <QuestionMarkCircleIcon className="w-2.5 h-2.5 ml-1 text-neutral-400" />
                       </Tooltip>
                     </span>
                   </label>
@@ -212,7 +208,6 @@ const HoldingsForm: React.FC = () => {
                 </div>
               </div>
               
-              {/* Profit/Loss indicator */}
               {holding.purchaseAmount > 0 && holding.currentValue > 0 && (
                 <div className="mt-4">
                   <div className="flex items-center gap-2">
@@ -240,9 +235,7 @@ const HoldingsForm: React.FC = () => {
               onClick={addHolding}
               className="btn-secondary"
             >
-              <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
+              <PlusIcon className="w-3 h-3 mr-1" />
               Add Another Cryptocurrency
             </button>
             
@@ -255,9 +248,7 @@ const HoldingsForm: React.FC = () => {
               whileTap={{ scale: isValid() ? 0.98 : 1 }}
             >
               Continue to Tax Position
-              <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
+              <ArrowRightIcon className="w-3 h-3 ml-1" />
             </motion.button>
           </div>
         </div>
