@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import FormStepper from './components/FormStepper';
-import HoldingsForm from './components/forms/HoldingsForm';
-import { useFormStore } from './store/useFormStore';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import FormStepper from '@/components/FormStepper';
+import HoldingsForm from '@/components/forms/HoldingsForm';
+import { useFormStore } from '@/store/useFormStore';
 
 const App: React.FC = () => {
   const { currentStep } = useFormStore();
